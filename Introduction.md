@@ -8,7 +8,7 @@
 
 ## BGP: How ASes Exchange Routing Information
 
-You already know from `nids-asn-introduction` that the Internet is a collection of Autonomous Systems (ASes) connected by provider-customer and peer-to-peer relationships. **BGP (Border Gateway Protocol)** is the protocol that makes these connections work: it is how ASes tell each other which IP prefixes they can reach and how to get there.
+You already know from [nids-asn-introduction](https://github.com/CAIDA/nids-asn-introduction) that the Internet is a collection of Autonomous Systems (ASes) connected by provider-customer and peer-to-peer relationships. **BGP (Border Gateway Protocol)** is the protocol that makes these connections work: it is how ASes tell each other which IP prefixes they can reach and how to get there.
 
 When an AS wants to announce that it can route traffic to a prefix (say, `203.0.113.0/24`), it sends a BGP **announcement** to its BGP neighbors. That announcement carries an **AS path** — the sequence of ASNs traffic must traverse to reach the destination. Neighbors propagate the announcement further, prepending their own ASN to the path. When a prefix is no longer reachable, the AS sends a BGP **withdrawal**.
 

@@ -4,7 +4,7 @@
 
 ## Step 1: Install uv and Python dependencies
 
-This module uses [uv](https://docs.astral.sh/uv/), the same Python package and project manager you used in `nids-asn-introduction`.
+This module uses [uv](https://docs.astral.sh/uv/), the same Python package and project manager you used in [nids-asn-introduction](https://github.com/CAIDA/nids-asn-introduction).
 
 ```bash
 # Install uv (skip if already installed)

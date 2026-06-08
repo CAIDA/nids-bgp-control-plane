@@ -4,7 +4,7 @@ README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks]
 
 ## Learning Objectives
 
-The goal of this assignment is to measure how widely Route Origin Validation (ROV) is deployed across the Internet by analyzing a real BGP routing table snapshot. You will use three RPKI beacons — prefixes with known ROA validity states maintained by RIPE NCC specifically for this kind of measurement — to infer which BGP collector peers enforce ROV. This assignment builds directly on what you learned in `nids-asn-introduction`: you already understand what Autonomous Systems are; now you will see how they communicate routing information and how that information can be used to study routing security.
+The goal of this assignment is to measure how widely Route Origin Validation (ROV) is deployed across the Internet by analyzing a real BGP routing table snapshot. You will use three RPKI beacons — prefixes with known ROA validity states maintained by RIPE NCC specifically for this kind of measurement — to infer which BGP collector peers enforce ROV. This assignment builds directly on what you learned in [nids-asn-introduction](https://github.com/CAIDA/nids-asn-introduction): you already understand what Autonomous Systems are; now you will see how they communicate routing information and how that information can be used to study routing security.
 
 ## Overview
 
@@ -49,7 +49,7 @@ nids-bgp-control-plane
 - **BGP collector**: a passive measurement node operated by projects like RIPE RIS and RouteViews. It peers with many ASes (collector peers) to receive their routing tables.
 - **Collector peer**: an AS that peers with a BGP collector and forwards its routing table to it.
 - **MRT format**: a binary file format for storing BGP data. A RIB snapshot records the full routing table at a point in time.
-- **RPKI (Resource Public Key Infrastructure)**: a cryptographic framework that lets IP address holders publish signed records binding prefixes to authorized origin ASNs.
+- **[RPKI (Resource Public Key Infrastructure)](https://blog.cloudflare.com/rpki/)**: a cryptographic framework that lets IP address holders publish signed records binding prefixes to authorized origin ASNs.
 - **ROA (Route Origin Authorization)**: an RPKI record stating which AS(es) may announce a specific prefix. A prefix is ROA-valid, ROA-invalid, or unknown (no ROA).
 - **ROV (Route Origin Validation)**: a router policy that drops ROA-invalid routes, preventing their propagation.
 - **RPKI beacon**: a prefix maintained specifically to measure ROV adoption. RIPE NCC operates one ROA-valid, one ROA-invalid, and one unknown beacon.
