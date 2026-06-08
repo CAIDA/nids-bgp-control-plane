@@ -5,8 +5,8 @@
 ```
 Report.md                               ⬅ Update with tables and answers
 └- scripts/
-|  ├- beacon-updates.py           ⬅ You will need to write
-|  └- rov-peers.py               ⬅ You will need to write
+|  ├- beacon-updates.py           ⬅ You will need to replace TODO comments
+|  └- rov-peers.py               ⬅ You will need to replace TODO comments
 └- tables/
    ├- beacon-updates.md
    └- rov-peers.md
@@ -17,10 +17,10 @@ Report.md                               ⬅ Update with tables and answers
   - step 1.2 explore with bgpkit CLI
   - step 1.3 explore with BGP2GO
   - step 1.4 answer questions 1, 2, and 3
-- Task 2: Create **scripts/beacon-updates.py**
+- Task 2: Update **scripts/beacon-updates.py**
   - step 2.1 use that script to create **tables/beacon-updates.md**
   - step 2.2 use **tables/beacon-updates.md** to answer questions 4 and 5
-- Task 3: Create **scripts/rov-peers.py**
+- Task 3: UPdate **scripts/rov-peers.py**
   - step 3.1 use that script to create **tables/rov-peers.md**
   - step 3.2 use **tables/rov-peers.md** to answer questions 6, 7, and 8
 
@@ -88,11 +88,11 @@ uv run scripts/beacon-updates.py --output tables/beacon-updates.md data/bview.20
 - **peers_announcing**: the number of distinct collector peers (by `peer_asn`) that have a route for this prefix
 - **unique_origin_asns**: the number of distinct origin ASNs observed across all routes for this prefix
 
-| prefix | roa_status | peers_announcing | unique_origin_asns |
-| ------ | ---------- | ---------------: | -----------------: |
-| 93.175.146.0/24 | valid | [count] | [count] |
-| 93.175.147.0/24 | invalid | [count] | [count] |
-| 84.205.83.0/24 | unknown | [count] | [count] |
+| prefix          | roa_status | peers_announcing | unique_origin_asns |
+| --------------- | ---------- | ---------------: | -----------------: |
+| 93.175.146.0/24 | valid      |          [count] |            [count] |
+| 93.175.147.0/24 | invalid    |          [count] |            [count] |
+| 84.205.83.0/24  | unknown    |          [count] |            [count] |
 
 ### 2.2 Answer questions 4 and 5
 
@@ -115,6 +115,7 @@ uv run scripts/rov-peers.py --output tables/rov-peers.md data/bview.20230322.000
 ```
 
 The script should:
+
 - Build a set `peers_valid`: all distinct `peer_asn` values that have a route for `93.175.146.0/24` (ROA-valid).
 - Build a set `peers_invalid`: all distinct `peer_asn` values that have a route for `93.175.147.0/24` (ROA-invalid).
 - Compute these categories:
@@ -128,12 +129,12 @@ The script should:
 - **peers**: count of peers in this category
 - **percentage**: share of all peers seen in the snapshot (one decimal place)
 
-| category | peers | percentage |
-| -------- | ----: | ---------: |
-| forwarded invalid | [count] | [%] |
-| enforced ROV (valid, not invalid) | [count] | [%] |
-| forwarded neither beacon | [count] | [%] |
-| total peers | [count] | — |
+| category                          |   peers | percentage |
+| --------------------------------- | ------: | ---------: |
+| forwarded invalid                 | [count] |        [%] |
+| enforced ROV (valid, not invalid) | [count] |        [%] |
+| forwarded neither beacon          | [count] |        [%] |
+| total peers                       | [count] |          — |
 
 ### 3.2 Answer questions 6, 7, and 8
 
