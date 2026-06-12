@@ -1,4 +1,4 @@
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Report](Report.md)
+[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Introduction and Background
 
@@ -22,7 +22,7 @@ The collector stores this data in **MRT (Multi-threaded Routing Toolkit)** files
 - **RIB (Routing Information Base) snapshots**: a full dump of what every collector peer currently announces, taken every few hours.
 - **Update files**: incremental changes (announcements and withdrawals) recorded in real time.
 
-In this module you will work with a RIB snapshot from RIPE RIS collector **rrc00** (Amsterdam). It records what each collector peer announced on March 22, 2023.
+In this module you will work with a RIB snapshot from the **RouteViews route-views4** collector, accessed via OSDF. It records what each collector peer announced on March 22, 2023.
 
 ## RPKI: Cryptographic Prefix Ownership
 
@@ -59,4 +59,4 @@ This is exactly the measurement you will perform in this module.
 - [BGP hijacking explained](https://www.cloudflare.com/learning/security/glossary/bgp-hijacking/) (Cloudflare)
 - [RPKI overview](https://rpki.cloudflare.com) (Cloudflare)
 
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Report](Report.md)
+[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)

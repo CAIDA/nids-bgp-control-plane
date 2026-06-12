@@ -1,4 +1,4 @@
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Report](Report.md)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Measuring BGP Control-Plane Security: ROV Deployment via RPKI Beacons
 
@@ -8,39 +8,26 @@ The goal of this assignment is to measure how widely Route Origin Validation (RO
 
 ## Overview
 
-Start by reading **Introduction** to understand BGP, RPKI, and the beacon methodology. **Setup** helps you install the tools and verify everything is working. **Datasets** explains the data you will use and how to download it. **Tasks** lays out the three tasks you need to complete.
+Start by reading **Introduction** to understand BGP, RPKI, and the beacon methodology. **Datasets** explains the data you will use. **Tasks** lays out the four tasks you need to complete.
 
 - step 1 [read the Introduction](Introduction.md)
-- step 2 [set up your environment](Setup.md)
-- step 3 [download the dataset and read the dataset overview](Datasets.md)
-- step 4 [follow the task instructions](Tasks.md)
-
-## Commit/Submit
-
-You will need to update and submit the following files.
-
-- [scripts/beacon-updates.py](scripts/beacon-updates.py) (task 2)
-- [scripts/rov-peers.py](scripts/rov-peers.py) (task 3)
-- [Report.md](Report.md)
-  - copy the tables you generated into the report
-  - answer the questions in each section
+- step 2 [read the dataset overview](Datasets.md)
+- step 3 [review the tasks](Tasks.md)
+- step 4 log into NRP's JupyterHub, upload and complete [nids-bgp-control-plane.ipynb](nids-bgp-control-plane.ipynb)
+  - Details intructions to access nrp: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/)
+  - replace all `# YOUR CODE HERE` sections with your code
+  - answer all eight questions in the markdown cells
+- step 5 download your completed `nids-bgp-control-plane.ipynb` ⬅ deliverable
+- step 6 commit and push the completed notebook to GitHub
 
 ### Directory Structure
 
 ```
 nids-bgp-control-plane
 ├- Introduction.md                     # Introduction and background
-├- Setup.md                            # Set up the environment
-├- Datasets.md                         # Dataset overview and download instructions
-├- Tasks.md                            # Task instructions
-├- Report.md                        ⬅ # Final report — fill this in
-└- scripts/
-|  ├- check-setup.py                   # Verify setup (provided)
-|  ├- beacon-updates.py           ⬅  # You will need to finish
-|  └- rov-peers.py                ⬅  # You will need to finish
-└- tables/
-   ├- beacon-updates.md               # Created by beacon-updates.py
-   └- rov-peers.md                    # Created by rov-peers.py
+├- Datasets.md                         # Dataset overview
+├- Tasks.md                            # Task checklist
+├- nids-bgp-control-plane.ipynb    ⬅  # Complete this notebook
 ```
 
 ### Glossary
@@ -54,4 +41,4 @@ nids-bgp-control-plane
 - **ROV (Route Origin Validation)**: a router policy that drops ROA-invalid routes, preventing their propagation.
 - **RPKI beacon**: a prefix maintained specifically to measure ROV adoption. RIPE NCC operates one ROA-valid, one ROA-invalid, and one unknown beacon.
 
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Report](Report.md)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)

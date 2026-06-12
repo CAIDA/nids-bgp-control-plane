@@ -1,22 +1,21 @@
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Report](Report.md)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Datasets
 
+The notebook streams the RIB snapshot directly from OSDF — no manual download is required.
+
+## RIB Snapshot: RouteViews route-views4 via OSDF
+
+**OSDF URL:**
 ```
-data/
-└── bview.20230322.0000.gz    ← download with the command below
-```
-
-## Download the RIPE RIS RIB Snapshot
-
-Download the March 22, 2023 RIB snapshot from RIPE RIS collector rrc00 (Amsterdam):
-
-```bash
-wget -O data/bview.20230322.0000.gz \
-  http://data.ris.ripe.net/rrc00/2023.03/bview.20230322.0000.gz
+https://osdf-director.osg-htc.org/routeviews/route-views4/bgpdata/2023.03/RIBS/rib.20230322.1800.bz2
 ```
 
-This is a **full RIB (Routing Information Base) snapshot**: it records every prefix that every collector peer was announcing at midnight UTC on that date. The file is in MRT binary format and is approximately 50 MB compressed. You do not need to decompress it — bgpkit handles that automatically.
+This is a **full RIB (Routing Information Base) snapshot** from the [RouteViews](https://www.routeviews.org/) route-views4 collector, captured at 18:00 UTC on March 22, 2023. RouteViews peers with hundreds of networks worldwide to collect a global view of BGP routing. The file is in MRT binary format (~94 MB compressed).
+
+The data is hosted on the [Open Science Data Federation (OSDF)](https://osg-htc.org/services/osdf.html), which mirrors the full RouteViews archive (2008–present) across regional caches. `bgpkit.Parser` streams it directly from the nearest cache — no local copy needed.
+
+The notebook's first cell lists all available snapshots for the date so you can see what is there.
 
 ### MRT File Fields
 
@@ -43,14 +42,4 @@ No separate download is needed. The three RPKI beacons are ordinary prefixes tha
 
 RIPE NCC maintains these prefixes specifically so that researchers can measure ROV deployment by counting which collector peers do and do not propagate the ROA-invalid beacon.
 
-## BGP2GO Web Interface
-
-BGP2GO provides an interactive web interface for exploring prefix history across BGP collectors:
-
-- **URL**: http://nids.caida.org:44444/
-- Filter to date **2023-03-22** to align with the RIB snapshot
-- Search for each of the three beacon prefixes to see which collectors observe them and what AS paths they carry
-
-You will use BGP2GO in Task 1 to explore the beacons before writing any code.
-
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Report](Report.md)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
