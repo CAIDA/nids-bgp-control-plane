@@ -6,16 +6,12 @@ Complete the tasks below in order. Tasks 2, 3, and 4 are completed inside [nids-
 
 ## Task 1: Get access to NRP's JupyterHub and run the notebook there.
 
-- step 1. [https://nrp.ai](https://nrp.ai/)
-  - for more details: [How To Access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/)
-- step 2. Click on "Log In" in the upper right corner
-- step 3. Select your organization and log in
-- step 4. Send an email to [training-program-info@caida.org](mailto:training-program-info@caida.org) with the email address you used to log into NRP.
-  - Details intructions to access nrp: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/) and clone this repo
+Use this link if you need to [get Access to NRP's JypterHub](https://www.caida.org/projects/nids/how-to/access-nrp/)
+
+- step 1. Go to [JupyterHub](https://jupyterhub-west.nrp-nautilus.io)
   - complete each task by replacing the `# YOUR CODE HERE` sections
-  - answer all six questions
-- step 5 download your working notebook ⬅ deliverable
-- step 6 commit your version and push to github
+  - answer all questions
+- step 2 download your completed version, commit, and sumbit
 
 ## Task 2: Explore BGP Data and RPKI Beacons
 
