@@ -1,62 +1,45 @@
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | Background ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Introduction and Background
 
 ### Reading
 
-- [What is BGP?](https://www.cloudflare.com/learning/security/glossary/what-is-bgp) (Cloudflare explainer)
+- [RouteViews Project](https://www.routeviews.org/) — the BGP data collection infrastructure used in this module
+- [CAIDA BGP Datasets](https://catalog.caida.org/search?query=bgp) — CAIDA's collection of BGP-derived datasets
+- [Border Gateway Protocol (Wikipedia)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
 
-## BGP: How ASes Exchange Routing Information
+<img width="60%" style="float:right;margin-right:2em;" src="images/rib-entry.png">
 
-You already know from [nids-asn-introduction](https://github.com/CAIDA/nids-asn-introduction) that the Internet is a collection of Autonomous Systems (ASes) connected by provider-customer and peer-to-peer relationships. **BGP (Border Gateway Protocol)** is the protocol that makes these connections work: it is how ASes tell each other which IP prefixes they can reach and how to get there.
+In _nids-asn-introduction_ you explored how ASes are organized and measured by their customer cones. This module takes a closer look at **what those ASes actually do**: announce IP address space to the rest of the Internet using BGP.
 
-When an AS wants to announce that it can route traffic to a prefix (say, `203.0.113.0/24`), it sends a BGP **announcement** to its BGP neighbors. That announcement carries an **AS path** — the sequence of ASNs traffic must traverse to reach the destination. Neighbors propagate the announcement further, prepending their own ASN to the path. When a prefix is no longer reachable, the AS sends a BGP **withdrawal**.
+**BGP (Border Gateway Protocol)** is the inter-domain routing protocol — it carries reachability information between separately operated networks. When an organization acquires a block of IP addresses (a _prefix_), their AS announces that prefix to its BGP neighbors, and the announcement propagates across the Internet so that other networks can route traffic to it.
 
-A key property of BGP is that it relies entirely on **trust**: any AS can announce any prefix, and by default neighbors will accept and propagate those announcements. This makes BGP vulnerable to **route origin hijacking**, where a malicious (or misconfigured) AS announces a prefix it doesn't actually own, attracting traffic meant for someone else.
+Each BGP announcement carries an **AS path**: the ordered sequence of ASNs a route has traversed. The last ASN in the path is the **origin AS** — the AS that originated the prefix. Route collectors like **RouteViews** peer with many ASes and archive full snapshots of their routing tables, called **RIBs (Routing Information Bases)**, in **MRT format**. This makes it possible to analyze the global view of prefix origination at a point in time.
 
-## BGP Collectors and MRT Files
+#### MOAS Prefixes
 
-Because BGP is a distributed protocol with no central log, researchers use **BGP collectors** to study it. RIPE NCC's [Routing Information Service (RIPE RIS)](https://ris.ripe.net) and the University of Oregon's [RouteViews](https://www.routeviews.org) project operate collectors around the world. Each collector peers with many ASes — called **collector peers** — that volunteer to forward their full routing tables to the collector.
+Some prefixes appear in the routing table with **more than one origin AS** — these are called **MOAS (Multi-Origin AS)** prefixes. MOAS announcements can arise from legitimate configurations (e.g., a multi-homed organization announces the same block from two ASes) or from routing incidents such as prefix hijacks. Measuring the fraction of MOAS prefixes gives insight into the stability and security of the global routing system.
 
-The collector stores this data in **MRT (Multi-threaded Routing Toolkit)** files:
-- **RIB (Routing Information Base) snapshots**: a full dump of what every collector peer currently announces, taken every few hours.
-- **Update files**: incremental changes (announcements and withdrawals) recorded in real time.
+#### Prefix Count vs. Address Count
 
-In this module you will work with a RIB snapshot from the **RouteViews route-views4** collector, accessed via OSDF. It records what each collector peer announced on March 22, 2023.
+A natural way to measure an AS's contribution to the routing table is to count the number of prefixes it originates. However, prefixes vary enormously in size — a /8 covers 16 million addresses while a /24 covers only 256. A more meaningful metric is the **address count**: the total number of IP addresses covered by an AS's prefixes.
 
-## RPKI: Cryptographic Prefix Ownership
+Address counting is not simply a matter of summing prefix sizes, because prefixes can overlap — a more-specific /24 may be nested inside a less-specific /16. The correct approach is to apply **longest-prefix-match** logic: an address is attributed to the most-specific prefix that covers it, avoiding double-counting.
 
-**RPKI (Resource Public Key Infrastructure)** is a system that lets IP address holders publish cryptographically signed records — called **ROAs (Route Origin Authorizations)** — that state which AS is authorized to originate a given prefix. A route's **ROA validity state** is one of:
+<img width="50%" src="images/prefix-distribution.png">
 
-- **valid** — a ROA exists and the announcing AS matches it
-- **invalid** — a ROA exists but the announcing AS does not match (possible hijack)
-- **unknown** — no ROA has been published for the prefix
+#### CCDF — Reading the Distribution
 
-## ROV: Enforcing RPKI at the Router Level
+Because prefix and address counts span many orders of magnitude, we visualize their distributions using a **Complementary Cumulative Distribution Function (CCDF)** on a log-log scale. The CCDF at value _x_ gives the fraction of ASes with a count _greater than or equal to x_. A steep initial drop-off shows that most ASes are small, while a long right-hand tail shows that a small number of ASes are very large. A straight line on a log-log CCDF is the signature of a **power-law distribution** — a pattern common in Internet topology measurements.
 
-A router that implements **ROV (Route Origin Validation)** checks incoming BGP announcements against the RPKI database and **drops routes whose origin AS makes them ROA-invalid**. If every AS on the Internet enforced ROV, BGP hijacks targeting ROA-protected prefixes would be blocked at the first ROV-enforcing hop.
+#### Connecting Back to Customer Cones
 
-In practice, ROV deployment is partial. Some ASes enforce it; many do not. This raises the empirical question: **what fraction of the Internet's routing infrastructure currently enforces ROV?**
+In _nids-asn-introduction_ you measured a customer cone by counting ASes. In this module you will extend that idea to **prefix space**: for each AS, aggregate the prefixes announced by every AS in its customer cone. This gives a picture of how much of the Internet's address space each AS is responsible for routing, rather than just how many customer networks it serves.
 
-## RPKI Beacons: Measuring ROV Adoption Empirically
+#### Optional Reading
 
-RIPE NCC maintains three **RPKI beacons** — prefixes with known, stable ROA validity states — specifically for measuring ROV deployment:
+- [RouteViews MRT Data Archive](https://archive.routeviews.org/) — raw BGP data files
+- [CAIDA RouteViews Prefix-to-AS Dataset](https://catalog.caida.org/dataset/routeviews_prefix2as) — CAIDA's prefix-to-origin-AS mapping
+- [Autonomous system (Wikipedia)](https://en.wikipedia.org/wiki/Autonomous_system_%28Internet%29)
 
-| prefix | roa_status | description |
-| ------ | ---------- | ----------- |
-| `93.175.146.0/24` | valid | Announced by AS12654 (RIPE NCC); ROA matches |
-| `93.175.147.0/24` | invalid | Announced by AS196615; ROA names a different origin AS — deliberately misconfigured |
-| `84.205.83.0/24` | unknown | No ROA registered |
-
-The inference logic is straightforward: a BGP collector peer that propagates the **valid** beacon but **not** the **invalid** beacon is likely enforcing ROV — it accepted the valid route but dropped the invalid one. A peer that propagates both beacons is likely not enforcing ROV.
-
-This is exactly the measurement you will perform in this module.
-
-#### Optional Further Reading
-
-- [RIPE NCC RPKI beacons](https://www.ripe.net/manage-ips-and-asns/resource-management/rpki/routing-security-for-ris-bgp-beacons)
-- [BGPkit documentation](https://bgpkit.com)
-- [BGP hijacking explained](https://www.cloudflare.com/learning/security/glossary/bgp-hijacking/) (Cloudflare)
-- [RPKI overview](https://rpki.cloudflare.com) (Cloudflare)
-
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | Background ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
