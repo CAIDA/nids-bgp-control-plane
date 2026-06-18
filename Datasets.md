@@ -57,6 +57,7 @@ As a quick reminder, the file format is:
 
 The cone size for an AS is the number of space-separated tokens on its line minus one (the first token is the AS itself). Refer to [nids-asn-introduction/Datasets.md](../../nids-asn-introduction/nids-asn-introduction/Datasets.md) for full download instructions and dataset details.
 
+### Prefix and IP Customer Cone
 We will also introduce two additional granularities of customer cone: *prefix customer cone* and *IPv4 address customer cone*.  The prefix customer cone is all of the prefixes originated by all customers in one's customer cone (without double counting within a customer cone).  Similarly, the IPv4 address customer cone is all of the addresses contained in all prefixes originated by all customers in one's customer cone (without subtracting more specifics that may be announced by a different AS).  Multiple ASes may have the same prefix/addresses in their prefix and address customer cones, but the same AS can only count each prefix/address once in their customer cone. 
 
 [README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Notebook](nids-bgp-control-plane.ipynb)
