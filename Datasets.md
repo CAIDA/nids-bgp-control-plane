@@ -4,18 +4,24 @@
 
 ## BGP Routing Table (RIB) Snapshots
 
-The notebook uses BGP RIB snapshots collected by **RouteViews**, a University of Oregon project that peers with ASes around the world and archives their full routing tables. Each snapshot captures every prefix announcement visible from a vantage point at a specific moment in time.
+The notebook uses BGP Routing Information Base (RIB) snapshots collected by **RouteViews**, a University of Oregon project's **collectors** [peer](Routing Information Base) with ASes around the world and archives their full routing tables. Each snapshot captures every **prefix** announcement visible from a vantage point (**peer**) at a specific moment in time.
 
 ### MRT Format
 
-RIB files are stored in **MRT (Multi-Threaded Routing Toolkit)** format. Each entry represents one prefix announcement and contains:
+RIB files are stored in **MRT (Multi-Threaded Routing Toolkit)** format.
+Each entry represents one prefix announcement and contains:
 
-| Field     | Example         | Description                                              |
-| --------- | --------------- | -------------------------------------------------------- |
-| prefix    | 192.0.2.0/24    | The announced IP prefix in CIDR notation                 |
-| as_path   | 3356 1299 13335 | Sequence of ASNs the route traversed                     |
-| origin_as | 13335           | Last ASN in the path — the AS that originated the prefix |
-| next_hop  | 198.51.100.1    | Next-hop IP address toward the destination               |
+| Field           | Example      | Description                                                 |
+| --------------- | ------------ | ----------------------------------------------------------- |
+| **collector**   | route-views2 | Name of the collector                                       |
+| **peer_asn**    | 10           | The ASN of the vantage point                                |
+| **peer_ip**     | 12.3.2.1     | The IP address of the vantage point                         |
+| **as_path**     | 10 724 8234  | Sequence of ASNs the route traversed                        |
+| **origin_asns** | 8234         | Last ASN in the path — the AS that originated the prefix    |
+|                 |              | When a prefix contains multiple ASNs, this is called a MOAS |
+| **prefix**      | 192.0.2.0/24 | The announced IP prefix in CIDR notation                    |
+
+<img width="60%" src="images/rib-route.png"><br/>
 
 ### bgpkit
 

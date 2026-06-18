@@ -8,7 +8,7 @@
 - [CAIDA BGP Datasets](https://catalog.caida.org/search?query=bgp) — CAIDA's collection of BGP-derived datasets
 - [Border Gateway Protocol (Wikipedia)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
 
-<img width="60%" style="float:right;margin-right:2em;" src="images/rib-entry.png">
+<img width="100%" src="images/as-router-topology.png">
 
 In _nids-asn-introduction_ you explored how ASes are organized and measured by their customer cones. This module takes a closer look at **what those ASes actually do**: announce IP address space to the rest of the Internet using BGP.
 
