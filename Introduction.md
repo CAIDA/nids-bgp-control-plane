@@ -26,7 +26,7 @@ A natural way to measure an AS's contribution to the routing table is to count t
 
 Address counting is not simply a matter of summing prefix sizes, because prefixes can overlap — a more-specific /24 may be nested inside a less-specific /16. The correct approach is to apply **longest-prefix-match** logic: an address is attributed to the most-specific prefix that covers it, avoiding double-counting.
 
-<img width="50%" src="images/prefix-distribution.png">
+<img width="100%" src="images/address-counting.png">
 
 ### CCDF — Reading the Distribution
 
