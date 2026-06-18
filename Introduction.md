@@ -18,23 +18,23 @@ Each BGP announcement carries an **AS path**: the ordered sequence of ASNs a rou
 
 ### MOAS Prefixes
 
-Some prefixes appear in the routing table with **more than one origin AS** — these are called **MOAS (Multi-Origin AS)** prefixes. MOAS announcements can arise from legitimate configurations (e.g., a multi-homed organization announces the same block from two ASes) or from routing incidents such as prefix hijacks. Measuring the fraction of MOAS prefixes gives insight into the stability and security of the global routing system.
+Some prefixes appear in the routing table with **more than one origin AS** — these are called **MOAS (Multi-Origin AS)** prefixes. MOAS announcements can arise from legitimate configurations (e.g., a multi-homed organization announces the same block from two ASes) or from routing incidents such as prefix hijacks. Measuring the fraction of MOAS prefixes gives some insight into the stability and security of the global routing system.
 
 ### Prefix Count vs. Address Count
 
 A natural way to measure an AS's contribution to the routing table is to count the number of prefixes it originates. However, prefixes vary enormously in size — a /8 covers 16 million addresses while a /24 covers only 256. A more meaningful metric is the **address count**: the total number of IP addresses covered by an AS's prefixes.
 
-Address counting is not simply a matter of summing prefix sizes, because prefixes can overlap — a more-specific /24 may be nested inside a less-specific /16. The correct approach is to apply **longest-prefix-match** logic: an address is attributed to the most-specific prefix that covers it, avoiding double-counting.
+Address counting is not simply a matter of summing prefix sizes, because prefixes can overlap — a more-specific /24 may be nested inside a less-specific /16. The correct approach is to apply **longest-prefix-match** logic: an address is attributed to the most-specific prefix that covers it, avoiding double-counting.   In the first part of this assignment  (prefix-to-AS mapping) we will map each prefix in a routing table to the AS that originates (the most specific subnet of) that prefix, that is we will subtract address space in more-specific subnets that are originated from AS B from the address space in a corresponding less-specific prefix announced by AS A. 
 
 <img width="100%" src="images/address-counting.png">
 
 ### CCDF — Reading the Distribution
 
-Because prefix and address counts span many orders of magnitude, we visualize their distributions using a **Complementary Cumulative Distribution Function (CCDF)** on a log-log scale. The CCDF at value _x_ gives the fraction of ASes with a count _greater than or equal to x_. A steep initial drop-off shows that most ASes are small, while a long right-hand tail shows that a small number of ASes are very large. A straight line on a log-log CCDF is the signature of a **power-law distribution** — a pattern common in Internet topology measurements.
+Because prefix and address counts span many orders of magnitude, we visualize their distributions using a **Complementary Cumulative Distribution Function (CCDF)** on a log-log scale. The CCDF at value _x_ gives the fraction of ASes that originate (prefixs or addresses) with a count _greater than or equal to x_. A steep initial drop-off shows that most ASes are small, while a long right-hand tail shows that a small number of ASes are very large. A straight line on a log-log CCDF is the signature of a **power-law distribution** — a pattern common in Internet topology measurements.
 
 ### Connecting Back to Customer Cones
 
-In _nids-asn-introduction_ you measured a customer cone by counting ASes. In this module you will extend that idea to **prefix space**: for each AS, aggregate the prefixes announced by every AS in its customer cone. This gives a picture of how much of the Internet's address space each AS is responsible for routing, rather than just how many customer networks it serves.
+In _nids-asn-introduction_ you measured a customer cone by counting ASes. In this module you will extend that idea to **prefix space**: for each AS, aggregate the prefixes announced by every AS in its customer cone. This gives a picture of how much of the Internet's address space each AS is responsible for routing, rather than just how many customer networks it serves.  In our customer cone analysis we will *not* subtract more specific subnets as we did for the prefix-to-AS mapping above. 
 
 #### Optional Reading
 
