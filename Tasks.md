@@ -1,4 +1,4 @@
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Task 1](Task-1.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Tasks
 
@@ -30,4 +30,4 @@ Load the CAIDA PPDC customer-cone file. For each root AS, aggregate the prefix c
 - [ ] Q5: Why do the prefix-count and address-count curves diverge on the cone plot? What does this tell you about how large transit providers aggregate address space?
 - [ ] Q6: How does the customer cone CCDF compare to the origin AS CCDF from Task 1? Why might the customer cone CCDFs converge long before the origin CCDFs?
 
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Task 1](Task-1.md) | [Notebook](nids-bgp-control-plane.ipynb)
