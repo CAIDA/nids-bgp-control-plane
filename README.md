@@ -14,7 +14,7 @@ Start by reading **Introduction** to get the background needed to understand the
 - step 2 [read dataset overviews](Datasets.md)
 - step 3 [review the tasks](Tasks.md)
 - step 4 log into NRP's JupyterHub, upload and complete the nids-bgp-control-plane.ipynb
-  - Details instructions to access NRP: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/)
+  - Detailed instructions to access NRP: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/)
   - complete each task by replacing the `# YOUR CODE HERE` sections
   - answer all six questions
 - step 5 download your working notebook and replace ⬅ deliverable

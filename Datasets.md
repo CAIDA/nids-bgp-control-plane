@@ -4,7 +4,7 @@
 
 ## BGP Routing Table (RIB) Snapshots
 
-The notebook uses BGP Routing Information Base (RIB) snapshots collected by **RouteViews**, a University of Oregon project's **collectors** [peer](Routing Information Base) with ASes around the world and archives their full routing tables. Each snapshot captures every **prefix** announcement visible from a vantage point (**peer**) at a specific moment in time.
+The notebook uses BGP Routing Information Base (RIB) snapshots collected by **RouteViews**, a University of Oregon project whose **collectors** [peer](https://archive.routeviews.org/peers//peering-status.html) with ASes around the world and archive their full routing tables. Each snapshot captures every **prefix** announcement visible from a vantage point (**peer**) at a specific moment in time.
 
 ### MRT Format
 
@@ -18,7 +18,7 @@ Each entry represents one prefix announcement and contains:
 | **peer_ip**     | 12.3.2.1     | The IP address of the vantage point                         |
 | **as_path**     | 10 724 8234  | Sequence of ASNs the route traversed                        |
 | **origin_asns** | 8234         | Last ASN in the path — the AS that originated the prefix    |
-|                 |              | When a prefix contains multiple ASNs, this is called a MOAS |
+|                 |              | When a prefix is announced by more than one origin AS, it is called a MOAS prefix |
 | **prefix**      | 192.0.2.0/24 | The announced IP prefix in CIDR notation                    |
 
 <img width="60%" src="images/rib-route.png"><br/>
@@ -26,6 +26,13 @@ Each entry represents one prefix announcement and contains:
 ### bgpkit
 
 The notebook uses **[bgpkit](https://bgpkit.com/)**, a library for parsing MRT-format BGP data. bgpkit handles decompression, MRT record parsing, and filtering, letting the notebook iterate over RIB entries as Python objects without dealing with the binary format directly.
+
+```python
+for elem in bgpkit.Parser(url=url):
+    elem.collector
+    elem.peer_asn
+    (etc)
+```
 
 ### OSDF
 
