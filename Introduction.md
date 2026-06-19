@@ -1,4 +1,4 @@
-[README](README.md) | Background ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-1.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | Background ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Introduction and Background
 
@@ -42,4 +42,4 @@ In _nids-asn-introduction_ you measured a customer cone by counting ASes. In thi
 - [CAIDA RouteViews Prefix-to-AS Dataset](https://catalog.caida.org/dataset/routeviews_prefix2as) — CAIDA's prefix-to-origin-AS mapping
 - [Autonomous system (Wikipedia)](https://en.wikipedia.org/wiki/Autonomous_system_%28Internet%29)
 
-[README](README.md) | Background ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-1.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | Background ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
