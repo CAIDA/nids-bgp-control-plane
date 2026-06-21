@@ -4,7 +4,7 @@
 
 ## BGP Routing Table (RIB) Snapshots
 
-The notebook uses BGP Routing Information Base (RIB) snapshots collected by **RouteViews**, a University of Oregon project whose **collectors** [peer](https://archive.routeviews.org/peers//peering-status.html) with ASes around the world and archive their full routing tables. Each snapshot captures every **prefix** announcement visible from a vantage point (**peer**) at a specific moment in time.
+The notebook uses BGP Routing Information Base (RIB) snapshots collected by **RouteViews**, a University of Oregon project whose **collectors** [peer](https://archive.routeviews.org/peers/peering-status.html) with ASes around the world and archive their full routing tables. Each snapshot captures every **prefix** announcement visible from a vantage point (**peer**) at a specific moment in time.
 
 ### MRT Format
 
@@ -55,7 +55,6 @@ As a quick reminder, the file format is:
 1 1
 ```
 
-The cone size for an AS is the number of space-separated tokens on its line minus one (the first token is the AS itself). Refer to [nids-asn-introduction/Datasets.md](../../nids-asn-introduction/nids-asn-introduction/Datasets.md) for full download instructions and dataset details.
 
 ### Prefix and IP Customer Cone
 
