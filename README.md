@@ -4,7 +4,7 @@ README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks]
 
 ## Learning Objectives
 
-The goal of this assignment is to understand how origin Autonomous Systems (ASes) announce IPv4 prefixes via BGP, how to parse and analyze BGP routing table data, and how to visualize prefix distribution using complementary cumulative distribution functions (CCDFs). This assignment builds on the ASN and customer cone concepts introduced in _nids-asn-introduction_.
+The goal of this assignment is to understand how origin Autonomous Systems (ASes) announce IPv4 prefixes via BGP, how to parse and analyze BGP routing table data, how to visualize prefix distribution using complementary cumulative distribution functions (CCDFs), and how to rank ASes by prefix and address footprint and map them back to their organizations using CAIDA AS2Org. This assignment builds on the ASN and customer cone concepts introduced in _nids-asn-introduction_.
 
 ## Overview
 
@@ -44,6 +44,7 @@ nids-bgp-control-plane
 - **Prefix**: A block of IP addresses expressed in CIDR notation (e.g., 192.0.2.0/24). An AS originates a prefix by announcing it in BGP.
 - **RIB (Routing Information Base)**: A snapshot of the BGP routes a collector peer has received, capturing all prefix announcements visible at that vantage point.
 - **RouteViews**: A University of Oregon project that collects and archives BGP routing tables from vantage points around the Internet. [ [website](https://www.routeviews.org/) ]
+- **AS2Org**: A CAIDA dataset mapping each ASN to its operating organization's name and country, used in Task 3 to label ranked ASes.
 - **bgpkit**: A library for parsing MRT-format BGP data files, used in this notebook to process RIB snapshots.
 
 README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)

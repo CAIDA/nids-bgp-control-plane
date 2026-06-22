@@ -60,4 +60,18 @@ As a quick reminder, the file format is:
 
 We will also introduce two additional granularities of customer cone: _prefix customer cone_ and _IPv4 address customer cone_. The prefix customer cone is all of the prefixes originated by all customers in one's customer cone (without double counting within a customer cone). Similarly, the IPv4 address customer cone is all of the addresses contained in all prefixes originated by all customers in one's customer cone (without subtracting more specifics that may be announced by a different AS). Multiple ASes may have the same prefix/addresses in their prefix and address customer cones, but the same AS can only count each prefix/address once in their customer cone.
 
+## CAIDA AS2Org
+
+The notebook downloads the CAIDA **AS2Org** mapping (`as2org.jsonl`) to attach a real-world
+organization name and country to each ASN. The file is JSON Lines — one JSON record per line:
+
+| Field | Example | Description |
+|---|---|---|
+| `orgName` | Lumen | Organization name |
+| `country` | US | Two-letter country code |
+| `members` | [3356, 3549, ...] | ASNs belonging to this organization |
+
+The notebook builds `asn_to_info[asn] = {"name": ..., "country": ...}` by expanding each
+record's `members` list. AS2Org is used in **Task 3** to label the ranked ASNs.
+
 [README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
