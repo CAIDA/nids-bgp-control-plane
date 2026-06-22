@@ -1,5 +1,6 @@
 README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
+### [Network Infrastructure Data Science (NIDS) Module]
 # Understanding the BGP Control Plane
 
 ## Learning Objectives
