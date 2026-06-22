@@ -24,7 +24,7 @@ Fetch a BGP RIB snapshot from a RouteViews collector. Build a `prefix → origin
 
 ## Task 2: CCDF of Customer Cone IPv4 Prefix and Address Counts
 
-Load the CAIDA PPDC customer-cone file. For each root AS, aggregate the prefix counts and address counts of every AS in its customer cone. Plot a CCDF of cone prefix count and cone address count.
+Load the CAIDA Peer-Provider-Determined Cone (PPDC) customer-cone file. For each root AS, aggregate the prefix counts and address counts of every AS in its customer cone. Plot a CCDF of cone prefix count and cone address count.
 
 - [ ] Q4: What does the shape of the customer cone CCDF reveal about how IPv4 reachability is distributed across ASes?
 - [ ] Q5: Why do the prefix-count and address-count curves diverge on the cone plot? What does this tell you about how large transit providers aggregate address space?
