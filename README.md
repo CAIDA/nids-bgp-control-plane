@@ -1,4 +1,4 @@
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [(slides)](slides/nids-bgp-control-plane.pdf)
 
 ### [Network Infrastructure Data Science (NIDS) Module]
 ---
@@ -49,4 +49,4 @@ nids-bgp-control-plane
 - **AS2Org**: A CAIDA dataset mapping each ASN to its operating organization's name and country, used in Task 3 to label ranked ASes.
 - **bgpkit**: A library for parsing MRT-format BGP data files, used in this notebook to process RIB snapshots.
 
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [(slides)](slides/nids-bgp-control-plane.pdf)
