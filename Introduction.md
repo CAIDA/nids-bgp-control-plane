@@ -1,12 +1,18 @@
 [README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [(slides)](slides/nids-bgp-control-plane.pdf)
 
-# Introduction and Background
+# Introduction and Background 
 
 ### Reading
 
 - [RouteViews Project](https://www.routeviews.org/) — the BGP data collection infrastructure used in this module
 - [CAIDA BGP Datasets](https://catalog.caida.org/search?query=bgp) — CAIDA's collection of BGP-derived datasets
 - [Border Gateway Protocol (Wikipedia)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
+
+### Prerequisite NIDS Modules
+
+- [How the Internet assigns and uses Autonomous Systems (ASes)](https://github.com/CAIDA/nids-asn-introduction)
+
+## Introduction 
 
 In _nids-asn-introduction_ you explored how ASes are organized and measured by their customer cones. This module takes a closer look at **what those ASes actually do**: announce IP address space to the rest of the Internet using BGP.
 
