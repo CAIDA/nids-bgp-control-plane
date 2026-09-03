@@ -1,10 +1,25 @@
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [(slides)](slides/nids-bgp-control-plane.pdf)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
 
 # Datasets
+
+The notebook downloads all three datasets below itself. There is no manual download step, but two of the three are served from inside the NRP cluster, so the notebook only runs on NRP's JupyterHub.
 
 ## BGP Routing Table (RIB) Snapshots
 
 The notebook uses BGP Routing Information Base (RIB) snapshots collected by **RouteViews**, a University of Oregon project whose **collectors** [peer](https://archive.routeviews.org/peers/peering-status.html) with ASes around the world and archive their full routing tables. Each snapshot captures every **prefix** announcement visible from a vantage point (**peer**) at a specific moment in time.
+
+### What the notebook reads
+
+| | |
+| --- | --- |
+| Collector | `route-views3` |
+| OSDF path | `/routeviews/route-views3/bgpdata/2026.05/RIBS` |
+| File | the first RIB of the month — `rib.20260501.0000.bz2` |
+| Size | roughly 25 million RIB entries covering about 1.35 million distinct prefixes |
+
+The RIB holds both IPv4 and IPv6 prefixes; the notebook keeps only IPv4. Parsing the whole
+file takes several minutes on the hub — the loop prints progress every 5 million records so
+you can tell it is still working.
 
 ### MRT Format
 
@@ -34,6 +49,8 @@ for elem in bgpkit.Parser(url=url):
     (etc)
 ```
 
+The PyPI package is `pybgpkit-parser` and it is imported as `import pybgpkit_parser as bgpkit`.
+
 ### OSDF
 
 The notebook fetches RIB files via **OSDF (Open Science Data Federation)**, a distributed data infrastructure that provides high-speed access to large scientific datasets. The notebook handles this automatically — no manual download step is needed for the RIB data.
@@ -42,9 +59,20 @@ The notebook fetches RIB files via **OSDF (Open Science Data Federation)**, a di
 
 ---
 
-## CAIDA AS Customer Cone
+## CAIDA AS Customer Cone (`ppdc-ases`)
 
-You will download the CAIDA AS Customer Cone file (`20260501.ppdc-ases.txt.bz2`) the same way you did in _nids-asn-introduction_, and place it in the `data/` directory.
+CAIDA's `ppdc-ases` file lists the inferred **provider-peer customer cone** of every AS: each
+line gives a root AS followed by every AS reachable from it by following only
+provider-to-customer links. You met this dataset in _nids-asn-introduction_.
+
+The notebook downloads `20260501.ppdc-ases.txt.bz2` into `data/` from NRP's internal object
+store:
+
+```
+http://rook-ceph-rgw-nautiluss3.rook/caida/as-relationships/20260501.ppdc-ases.txt.bz2
+```
+
+> **Gotcha:** `rook-ceph-rgw-nautiluss3.rook` only resolves inside the NRP cluster. On a laptop this download fails with a DNS error — run the notebook on NRP's JupyterHub.
 
 As a quick reminder, the file format is:
 
@@ -55,6 +83,7 @@ As a quick reminder, the file format is:
 1 1
 ```
 
+The root AS appears again as the first member, so the set built from a line already includes the root.
 
 ### Prefix and IP Customer Cone
 
@@ -62,8 +91,14 @@ We will also introduce two additional granularities of customer cone: _prefix cu
 
 ## CAIDA AS2Org
 
-The notebook downloads the CAIDA **AS2Org** mapping (`as2org.jsonl`) to attach a real-world
-organization name and country to each ASN. The file is JSON Lines — one JSON record per line:
+The notebook downloads the CAIDA **AS2Org** mapping to attach a real-world organization name
+and country to each ASN:
+
+```
+http://rook-ceph-rgw-nautiluss3.rook/caida/as2org/as2org.jsonl
+```
+
+The same NRP-only caveat applies. The file is JSON Lines — one JSON record per line:
 
 | Field | Example | Description |
 |---|---|---|
@@ -74,4 +109,4 @@ organization name and country to each ASN. The file is JSON Lines — one JSON r
 The notebook builds `asn_to_info[asn] = {"name": ..., "country": ...}` by expanding each
 record's `members` list. AS2Org is used in **Task 3** to label the ranked ASNs.
 
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [(slides)](slides/nids-bgp-control-plane.pdf)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)

@@ -1,8 +1,14 @@
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [(slides)](slides/nids-bgp-control-plane.pdf)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
 
-### Network Infrastructure Data Science (NIDS) Module
+### [Network Infrastructure Data Science (NIDS) Assignment]
+
 ---
-# Understanding the BGP Control Plane
+
+# How origin ASes announce IPv4 prefixes in BGP
+
+## Authors
+
+Bradley Huffaker
 
 ## Learning Objectives
 
@@ -15,8 +21,10 @@ Start by reading **Introduction** to get the background needed to understand the
 - step 1 [read the introduction](Introduction.md)
 - step 2 [read dataset overviews](Datasets.md)
 - step 3 [review the tasks](Tasks.md)
+  - Task 1 has a how-to guide: [Counting Addresses per Origin AS](Task-count-addresses.md)
 - step 4 log into NRP's JupyterHub, upload and complete the nids-bgp-control-plane.ipynb
   - Detailed instructions to access NRP: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/)
+  - the notebook downloads all three datasets itself — there is no manual download step
   - complete each task by replacing the `# YOUR CODE HERE` sections
   - answer all six questions
 - step 5 download your working notebook and replace ⬅ deliverable
@@ -29,14 +37,19 @@ nids-bgp-control-plane
 ├- Introduction.md                          # Introduction and background
 ├- Datasets.md                              # Dataset overview and access instructions
 ├- Tasks.md                                 # Task checklist and instructions
-├- nids-bgp-control-plane.ipynb         ⬅  # Complete / Commit / Push
+├- Task-count-addresses.md                  # Task 1 guide: counting addresses per origin AS
+├- images/                                  # Figures used by the markdown pages
+├- slides/ETP-Week-02-BGP.pptx              # Lecture slides
+├- nids-bgp-control-plane.ipynb          ⬅  # Complete / Commit / Push
 ```
 
 ### Glossary
 
 - **AS (Autonomous System)**: An independently operated network on the Internet, identified by a globally unique ASN.
 - **AS Path**: The sequence of ASes a BGP route advertisement has traversed, recorded in each BGP announcement.
+- **AS2Org**: A CAIDA dataset mapping each ASN to its operating organization's name and country, used in Task 3 to label ranked ASes.
 - **BGP (Border Gateway Protocol)**: The inter-domain routing protocol used to exchange reachability information between ASes on the Internet.
+- **bgpkit**: A library for parsing MRT-format BGP data files, used in this notebook to process RIB snapshots.
 - **CCDF (Complementary Cumulative Distribution Function)**: A function showing the fraction of observations _greater than or equal to_ a given value. Used here to visualize how prefix and address counts are distributed across ASes.
 - **Customer Cone**: The set of all ASes reachable from a given AS by following only provider-to-customer links. Introduced in _nids-asn-introduction_.
 - **MOAS (Multi-Origin AS)**: A prefix announced as originating from more than one AS. MOAS prefixes can indicate routing misconfigurations or hijacks.
@@ -44,9 +57,8 @@ nids-bgp-control-plane
 - **Origin AS**: The AS that originates a BGP prefix announcement — the last ASN in the AS path.
 - **OSDF (Open Science Data Federation)**: Distributed data infrastructure used by CAIDA to serve large datasets; the notebook fetches BGP RIB files via OSDF automatically.
 - **Prefix**: A block of IP addresses expressed in CIDR notation (e.g., 192.0.2.0/24). An AS originates a prefix by announcing it in BGP.
+- **Pytricia**: A Python prefix trie (`pytricia`) keyed on IP prefixes; used in Task 1 to find the prefixes nested inside another prefix.
 - **RIB (Routing Information Base)**: A snapshot of the BGP routes a collector peer has received, capturing all prefix announcements visible at that vantage point.
 - **RouteViews**: A University of Oregon project that collects and archives BGP routing tables from vantage points around the Internet. [ [website](https://www.routeviews.org/) ]
-- **AS2Org**: A CAIDA dataset mapping each ASN to its operating organization's name and country, used in Task 3 to label ranked ASes.
-- **bgpkit**: A library for parsing MRT-format BGP data files, used in this notebook to process RIB snapshots.
 
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [(slides)](slides/nids-bgp-control-plane.pdf)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
