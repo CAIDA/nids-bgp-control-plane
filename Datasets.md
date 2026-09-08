@@ -1,8 +1,12 @@
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Datasets
 
-The notebook downloads all three datasets below itself. There is no manual download step, but two of the three are served from inside the NRP cluster, so the notebook only runs on NRP's JupyterHub.
+The notebook reads all three datasets below, and there is no manual download step. Two of the three
+are served from inside the NRP cluster, so where the file comes from depends on where you are: on
+NRP's JupyterHub the notebook fetches both from the in-cluster store, and on your own machine
+[`nids-setup`](https://github.com/CAIDA/nids-setup#quickstart) stages them into `data/` beforehand
+from CAIDA's public site. Every download cell skips a file that is already present.
 
 ## BGP Routing Table (RIB) Snapshots
 
@@ -72,7 +76,10 @@ store:
 http://rook-ceph-rgw-nautiluss3.rook/caida/as-relationships/20260501.ppdc-ases.txt.bz2
 ```
 
-> **Gotcha:** `rook-ceph-rgw-nautiluss3.rook` only resolves inside the NRP cluster. On a laptop this download fails with a DNS error — run the notebook on NRP's JupyterHub.
+> **Gotcha:** `rook-ceph-rgw-nautiluss3.rook` only resolves inside the NRP cluster, so off NRP this
+> download fails with a DNS error — unless the file is already in `data/`, which is what
+> [`nids-setup`](https://github.com/CAIDA/nids-setup#quickstart) puts there. Run setup first and the
+> cell never fetches.
 
 As a quick reminder, the file format is:
 
@@ -98,7 +105,8 @@ and country to each ASN:
 http://rook-ceph-rgw-nautiluss3.rook/caida/as2org/as2org.jsonl
 ```
 
-The same NRP-only caveat applies. The file is JSON Lines — one JSON record per line:
+The same caveat applies: the URL resolves only on NRP, and off NRP `nids-setup` stages the file
+into `data/` so the cell skips. The file is JSON Lines — one JSON record per line:
 
 | Field | Example | Description |
 |---|---|---|
@@ -109,4 +117,4 @@ The same NRP-only caveat applies. The file is JSON Lines — one JSON record per
 The notebook builds `asn_to_info[asn] = {"name": ..., "country": ...}` by expanding each
 record's `members` list. AS2Org is used in **Task 3** to label the ranked ASNs.
 
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)

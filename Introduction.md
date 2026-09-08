@@ -1,4 +1,4 @@
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Introduction and Background
 
@@ -7,7 +7,6 @@
 - [RouteViews Project](https://www.routeviews.org/) (website) — the BGP data collection infrastructure used in this assignment
 - [CAIDA BGP Datasets](https://catalog.caida.org/search?query=bgp) (catalog) — CAIDA's collection of BGP-derived datasets
 - [Border Gateway Protocol](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) (wikipedia) — how the protocol works
-- [BGP-4 and its vulnerabilities](slides/ETP-Week-02-BGP.pptx) (slides) — the lecture deck for this assignment
 
 ### Prerequisite NIDS Assignments
 
@@ -53,4 +52,4 @@ The first two tasks produce four numbers for every AS: the prefixes and addresse
 - [CAIDA RouteViews Prefix-to-AS Dataset](https://catalog.caida.org/dataset/routeviews_prefix2as) (dataset) — CAIDA's prefix-to-origin-AS mapping
 - [Autonomous system](https://en.wikipedia.org/wiki/Autonomous_system_%28Internet%29) (wikipedia) — background on ASes
 
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)

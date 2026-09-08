@@ -1,4 +1,4 @@
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 ### [Network Infrastructure Data Science (NIDS) Assignment]
 
@@ -22,9 +22,10 @@ Start by reading **Introduction** to get the background needed to understand the
 - step 2 [read dataset overviews](Datasets.md)
 - step 3 [review the tasks](Tasks.md)
   - Task 1 has a how-to guide: [Counting Addresses per Origin AS](Task-count-addresses.md)
-- step 4 log into NRP's JupyterHub, upload and complete the nids-bgp-control-plane.ipynb
-  - Detailed instructions to access NRP: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/)
-  - the notebook downloads all three datasets itself — there is no manual download step
+- step 4 set up and complete the nids-bgp-control-plane.ipynb — the notebook is the same either way
+  - on your own machine: follow the [nids-setup quickstart](https://github.com/CAIDA/nids-setup#quickstart), which clones this module, builds a Python environment, and stages its data
+  - on NRP's JupyterHub: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/), then upload the notebook and run it
+  - there is no manual download step in either case
   - complete each task by replacing the `# YOUR CODE HERE` sections
   - answer all six questions
 - step 5 download your working notebook and replace ⬅ deliverable
@@ -39,7 +40,6 @@ nids-bgp-control-plane
 ├- Tasks.md                                 # Task checklist and instructions
 ├- Task-count-addresses.md                  # Task 1 guide: counting addresses per origin AS
 ├- images/                                  # Figures used by the markdown pages
-├- slides/ETP-Week-02-BGP.pptx              # Lecture slides
 ├- nids-bgp-control-plane.ipynb          ⬅  # Complete / Commit / Push
 ```
 
@@ -57,8 +57,8 @@ nids-bgp-control-plane
 - **Origin AS**: The AS that originates a BGP prefix announcement — the last ASN in the AS path.
 - **OSDF (Open Science Data Federation)**: Distributed data infrastructure used by CAIDA to serve large datasets; the notebook fetches BGP RIB files via OSDF automatically.
 - **Prefix**: A block of IP addresses expressed in CIDR notation (e.g., 192.0.2.0/24). An AS originates a prefix by announcing it in BGP.
-- **Pytricia**: A Python prefix trie (`pytricia`) keyed on IP prefixes; used in Task 1 to find the prefixes nested inside another prefix.
+- **Radix trie**: A Python prefix trie (`py-radix`, imported as `radix`) keyed on IP prefixes; used in Task 1 to find the prefixes nested inside another prefix.
 - **RIB (Routing Information Base)**: A snapshot of the BGP routes a collector peer has received, capturing all prefix announcements visible at that vantage point.
 - **RouteViews**: A University of Oregon project that collects and archives BGP routing tables from vantage points around the Internet. [ [website](https://www.routeviews.org/) ]
 
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)

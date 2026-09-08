@@ -1,4 +1,4 @@
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | Task 1 ⮕ | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | Task 1 ⮕ | [Notebook](nids-bgp-control-plane.ipynb)
 
 <img src="images/address-counting.png">
 
@@ -16,12 +16,15 @@ Two rules govern the count:
 
 A prefix written as `A.B.C.D/N` covers **2^(32−N)** addresses. In Python: `1 << (32 - prefix_len)`. A `/8` covers 16,777,216 addresses; a `/24` covers only 256.
 
-### Pytricia
+### The radix trie
 
-**Pytricia** is a prefix trie — a data structure that acts like a dictionary keyed on IP prefixes and understands containment relationships between them. Two methods matter here:
+`py-radix` (imported as `radix`) is a prefix trie — a data structure that acts like a dictionary keyed on IP prefixes and understands containment relationships between them. Create one with `rtree = radix.Radix()`. Three methods matter here:
 
-- `pyt.children(prefix)` — returns all prefixes nested inside `prefix` at any depth. The prefix itself is included in the result; skip it with `if child == prefix: continue`.
-- `pyt.parent(child)` — returns the immediately enclosing prefix of `child`.
+- `rtree.add(prefix)` — inserts `prefix` and returns its node. A node's `.data` dict holds whatever you attach to it, and `.prefixlen` is the mask length.
+- `rtree.search_covered(prefix)` — returns every node nested inside `prefix` at any depth. `prefix` itself is included in the result; skip it with `if node.prefix == prefix: continue`.
+- `rtree.search_covering(child)` — returns `child`'s enclosing prefixes, most specific first, with `child` itself included. So `child`'s immediate parent is the first entry that is not `child`.
+
+There is no single `parent()` call: the immediate parent is derived from `search_covering` as above. Getting that filter wrong makes the counts silently wrong rather than raising an error.
 
 ### Counting by Subtraction
 
@@ -62,4 +65,4 @@ Task 1 asks three questions in the notebook. Once your counts run, look for:
 - **Q2** — the MOAS share of the routing table, what a multi-origin announcement can legitimately mean, and why the same signal is used to detect hijacks.
 - **Q3** — why the prefix-count and address-count curves separate, and what that says about the relationship between how many prefixes an AS announces and how much address space it holds.
 
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | Task 1 ⮕ | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | Task 1 ⮕ | [Notebook](nids-bgp-control-plane.ipynb)

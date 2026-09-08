@@ -1,23 +1,29 @@
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Tasks
 
 Complete the tasks below in order. All three tasks are completed inside [nids-bgp-control-plane.ipynb](nids-bgp-control-plane.ipynb) — replace the `# YOUR CODE HERE` sections with your code and answer the six questions in the markdown cells that follow.
 
-## Task 0: Get access to NRP's JupyterHub and run the notebook there.
+## Task 0: Set up and run the notebook
 
-Use this link if you need to [get access to NRP's JupyterHub](https://www.caida.org/projects/nids/how-to/access-nrp/)
+Not graded. Both ways run the same notebook — use whichever you have access to.
 
-- step 1. Go to [JupyterHub](https://jupyterhub-west.nrp-nautilus.io)
-  - upload `nids-bgp-control-plane.ipynb` and run it
-  - complete each task by replacing the `# YOUR CODE HERE` sections
-  - answer all questions
-- step 2. Download your completed notebook, commit, and submit.
+- **On your own machine** — follow the
+  [nids-setup quickstart](https://github.com/CAIDA/nids-setup#quickstart). One command clones this
+  module, builds a Python environment for it, and stages the two datasets that are not served on
+  the open web. Then open `nids-bgp-control-plane.ipynb`.
+- **On NRP's JupyterHub** — [get access to NRP](https://www.caida.org/projects/nids/how-to/access-nrp/),
+  log in at [jupyterhub-west.nrp-nautilus.io](https://jupyterhub-west.nrp-nautilus.io), upload
+  `nids-bgp-control-plane.ipynb`, and run it. The hub supplies the packages, and the datasets are
+  served from inside the cluster.
+
+Either way: complete each task by replacing the `# YOUR CODE HERE` sections, answer all questions,
+then download your completed notebook, commit, and submit.
 
 Before starting Task 1, confirm your environment:
 
-- [ ] the setup cell (`%pip install pybgpkit-parser pelicanfs pytricia pandas`) runs without error
-- [ ] the imports in that same cell succeed — in particular `import pytricia` and `from pelicanfs.core import OSDFFileSystem`
+- [ ] the setup cell (`%pip install pybgpkit-parser pelicanfs py-radix pandas`) runs without error
+- [ ] the imports in that same cell succeed — in particular `import radix` and `from pelicanfs.core import OSDFFileSystem`
 - [ ] the first Task 1 cell prints a `reading https://osdf-director.osg-htc.org/...` line, showing the RIB listing worked
 
 ## Task 1: CCDF of Origin AS IPv4 Prefix and Address Counts
@@ -45,4 +51,4 @@ rows so ASNs with the best rank in any column appear first.
 
 - [ ] Q6: Write a single sentence for each of the top 4 organizations: what are they, and why would they be ranked so high?
 
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb) | [Slides](slides/ETP-Week-02-BGP.pptx)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | Tasks ⮕ | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
