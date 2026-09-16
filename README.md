@@ -23,7 +23,7 @@ Start by reading **Introduction** to get the background needed to understand the
 - step 3 [review the tasks](Tasks.md)
   - Task 1 has a how-to guide: [Counting Addresses per Origin AS](Task-count-addresses.md)
 - step 4 set up and complete the nids-bgp-control-plane.ipynb — the notebook is the same either way
-  - on your own machine: follow the [nids-setup quickstart](https://github.com/CAIDA/nids-setup#quickstart), which clones this module, builds a Python environment, and stages its data
+  - on your own machine: follow the [nids-setup quickstart](https://github.com/CAIDA/nids-setup#running-asn-and-bgp-on-your-own-machine), which clones this module, builds a Python environment, and stages its data
   - on NRP's JupyterHub: [How to access NRP](https://www.caida.org/projects/nids/how-to/access-nrp/), then upload the notebook and run it
   - there is no manual download step in either case
   - complete each task by replacing the `# YOUR CODE HERE` sections

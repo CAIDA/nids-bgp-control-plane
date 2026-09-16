@@ -9,7 +9,7 @@ Complete the tasks below in order. All three tasks are completed inside [nids-bg
 Not graded. Both ways run the same notebook — use whichever you have access to.
 
 - **On your own machine** — follow the
-  [nids-setup quickstart](https://github.com/CAIDA/nids-setup#quickstart). One command clones this
+  [nids-setup quickstart](https://github.com/CAIDA/nids-setup#running-asn-and-bgp-on-your-own-machine). One command clones this
   module, builds a Python environment for it, and stages the two datasets that are not served on
   the open web. Then open `nids-bgp-control-plane.ipynb`.
 - **On NRP's JupyterHub** — [get access to NRP](https://www.caida.org/projects/nids/how-to/access-nrp/),

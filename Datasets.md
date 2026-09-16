@@ -5,7 +5,7 @@
 The notebook reads all three datasets below, and there is no manual download step. Two of the three
 are served from inside the NRP cluster, so where the file comes from depends on where you are: on
 NRP's JupyterHub the notebook fetches both from the in-cluster store, and on your own machine
-[`nids-setup`](https://github.com/CAIDA/nids-setup#quickstart) stages them into `data/` beforehand
+[`nids-setup`](https://github.com/CAIDA/nids-setup#running-asn-and-bgp-on-your-own-machine) stages them into `data/` beforehand
 from CAIDA's public site. Every download cell skips a file that is already present.
 
 ## BGP Routing Table (RIB) Snapshots
@@ -78,7 +78,7 @@ http://rook-ceph-rgw-nautiluss3.rook/caida/as-relationships/20260501.ppdc-ases.t
 
 > **Gotcha:** `rook-ceph-rgw-nautiluss3.rook` only resolves inside the NRP cluster, so off NRP this
 > download fails with a DNS error — unless the file is already in `data/`, which is what
-> [`nids-setup`](https://github.com/CAIDA/nids-setup#quickstart) puts there. Run setup first and the
+> [`nids-setup`](https://github.com/CAIDA/nids-setup#running-asn-and-bgp-on-your-own-machine) puts there. Run setup first and the
 > cell never fetches.
 
 As a quick reminder, the file format is:
