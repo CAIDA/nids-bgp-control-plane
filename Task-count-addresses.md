@@ -1,4 +1,4 @@
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | Task 1 ⮕ | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | How-To Guide ⮕ | [Notebook](nids-bgp-control-plane.ipynb)
 
 <img src="images/address-counting.png">
 
