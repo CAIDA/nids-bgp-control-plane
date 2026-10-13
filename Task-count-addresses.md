@@ -65,4 +65,4 @@ Task 1 asks three questions in the notebook. Once your counts run, look for:
 - **Q2** — the MOAS share of the routing table, what a multi-origin announcement can legitimately mean, and why the same signal is used to detect hijacks.
 - **Q3** — why the prefix-count and address-count curves separate, and what that says about the relationship between how many prefixes an AS announces and how much address space it holds.
 
-[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | Task 1 ⮕ | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | How-To Guide ⮕ | [Notebook](nids-bgp-control-plane.ipynb)
