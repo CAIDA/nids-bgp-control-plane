@@ -1,4 +1,4 @@
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [How-To Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 ### [Network Infrastructure Data Science (NIDS) Assignment]
 
