@@ -25,6 +25,29 @@ A prefix written as `A.B.C.D/N` covers **2^(32−N)** addresses. In Python: `1 <
 - `rtree.search_covering(child)` — returns `child`'s enclosing prefixes, most specific first, with `child` itself included. So `child`'s immediate parent is the first entry that is not `child`.
 
 There is no single `parent()` call: the immediate parent is derived from `search_covering` as above. Getting that filter wrong makes the counts silently wrong rather than raising an error.
+More information on py-radix: [py-radix](https://pypi.org/project/py-radix/).
+
+### Radix Example:
+
+```python
+import radix
+
+rtree = radix.Radix()
+
+# Add prefixes; each add() returns a node you can store data on
+node = rtree.add("192.168.0.0/16")
+node.data["asn"] = 64500
+rtree.add("192.168.1.0/24")
+
+# Read a node's fields
+print(node.prefix, node.prefixlen, node.data["asn"])   # 192.168.0.0/16 16 64500
+
+# Prefixes inside 192.168.0.0/16 (includes itself)
+print([n.prefix for n in rtree.search_covered("192.168.0.0/16")]) # ['192.168.0.0/16', '192.168.1.0/24']
+
+# Prefixes that contain 192.168.1.0/24 (includes itself)
+print([n.prefix for n in rtree.search_covering("192.168.1.0/24")]) # ['192.168.1.0/24', '192.168.0.0/16']
+```
 
 ### Counting by Subtraction
 
