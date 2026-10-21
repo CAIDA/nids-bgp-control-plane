@@ -1,4 +1,4 @@
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1 Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Datasets
 
@@ -117,4 +117,4 @@ into `data/` so the cell skips. The file is JSON Lines — one JSON record per l
 The notebook builds `asn_to_info[asn] = {"name": ..., "country": ...}` by expanding each
 record's `members` list. AS2Org is used in **Task 3** to label the ranked ASNs.
 
-[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | [Introduction](Introduction.md) | Datasets ⮕ | [Tasks](Tasks.md) | [Task 1 Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
