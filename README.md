@@ -1,4 +1,4 @@
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [How-To Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1 Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 ### [Network Infrastructure Data Science (NIDS) Assignment]
 
@@ -61,4 +61,4 @@ nids-bgp-control-plane
 - **RIB (Routing Information Base)**: A snapshot of the BGP routes a collector peer has received, capturing all prefix announcements visible at that vantage point.
 - **RouteViews**: A University of Oregon project that collects and archives BGP routing tables from vantage points around the Internet. [ [website](https://www.routeviews.org/) ]
 
-README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [How-To Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1 Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)

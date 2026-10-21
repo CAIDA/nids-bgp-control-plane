@@ -1,4 +1,4 @@
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [How-To Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1 Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
 # Introduction and Background
 
@@ -52,4 +52,4 @@ The first two tasks produce four numbers for every AS: the prefixes and addresse
 - [CAIDA RouteViews Prefix-to-AS Dataset](https://catalog.caida.org/dataset/routeviews_prefix2as) (dataset) — CAIDA's prefix-to-origin-AS mapping
 - [Autonomous system](https://en.wikipedia.org/wiki/Autonomous_system_%28Internet%29) (wikipedia) — background on ASes
 
-[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [How-To Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
+[README](README.md) | Introduction ⮕ | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1 Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
