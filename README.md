@@ -1,14 +1,12 @@
 README ⮕ | [Introduction](Introduction.md) | [Datasets](Datasets.md) | [Tasks](Tasks.md) | [Task 1 Guide](Task-count-addresses.md) | [Notebook](nids-bgp-control-plane.ipynb)
 
-### [Network Infrastructure Data Science (NIDS) Assignment]
+### [Network Infrastructure Data Science (NIDS) Assignment](https://www.caida.org/projects/nids/)
 
 ---
 
 # How origin ASes announce IPv4 prefixes in BGP
 
-## Authors
-
-Bradley Huffaker
+**author**: Bradley Huffaker, Nick Nerrel
 
 ## Learning Objectives
 
